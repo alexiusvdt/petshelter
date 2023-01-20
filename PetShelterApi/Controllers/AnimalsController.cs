@@ -24,11 +24,6 @@ namespace PetShelterApi.Controllers
       {
         query = query.Where(entry => entry.Species == species);
       }
-      if (species != null && subspecies != null)
-      {
-        query = query.Where(entry => entry.SubSpecies == subspecies);
-      }
-      
       if (name != null)
       {
         query = query.Where(entry => entry.Name == name);
