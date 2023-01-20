@@ -40,6 +40,8 @@ An Api for managing pet residents.
   dotnet add package Microsoft.EntityFrameworkCore -v 6.0.0
   dotnet add package Pomelo.EntityFrameworkCore.MySql -v 6.0.0
   dotnet add package Microsoft.EntityFrameworkCore.Design -v 6.0.0
+  dotnet add package RestSharp --version 108.0.3	
+  dotnet add package Newtonsoft.Json --version 13.0.2
   dotnet ef database update
   ```
 * add a file in the PetShelterApi directory called `appsettings.json` and add the following code, replacing the password/user field with your credentials:
@@ -57,6 +59,34 @@ An Api for managing pet residents.
   }
 }
 ```
+
+# Client Setup
+
+* Navigate to the `PetShelterClient` directory, opening a command line interface
+* Enter the following commands:
+ ```
+ dotnet add package Microsoft.EntityFrameworkCore.Design -v 6.0.0
+ dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore -v 6.0.0
+ dotnet add package RestSharp --version 108.0.3	
+ dotnet add package Newtonsoft.Json --version 13.0.2
+ ```
+ * In the `PetShelterClient` directory create a file called appsettings.json and enter the following code:
+ ```
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+ ```
+
+# Running the program
+* Start the API by opening a command line in the `PetShelterApi` directory and enter `dotnet run`
+* Start the client by opening a command line in the `PetShelterClient` directory and enter `dotnet run`
+
 
 ### API Documentation
 
@@ -124,34 +154,11 @@ You may also query certain attributes by using the following syntax in your GET 
 
 
 
-### for later
-mvc/api
-dotnet add package RestSharp --version 108.0.3	
-dotnet add package Newtonsoft.Json --version 13.0.2
-
 
 * Run the API 
   
 * Clone this repo 
-* Navigate to the `CLIENT` directory, opening a command line interface
-* Enter the following commands:
- ```
- dotnet add package Microsoft.EntityFrameworkCore.Design -v 6.0.0
- dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore -v 6.0.0
- ```
- * In the `CLIENT` directory create a file called appsettings.json and enter the following code:
- ```
-{
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
-    }
-  },
-  "AllowedHosts": "*"
-}
- ```
- * run the program with `dotnet run`
+
 
 ## Known Bugs
 
