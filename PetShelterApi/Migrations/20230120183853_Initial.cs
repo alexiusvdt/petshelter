@@ -39,13 +39,13 @@ namespace PetShelterApi.Migrations
                 columns: new[] { "AnimalId", "Age", "Name", "ShelterDate", "Species", "SubSpecies" },
                 values: new object[,]
                 {
-                    { 1, 7, "Denna", "01/20/2023", "Cat", "Himalayan" },
-                    { 2, 2, "Kvothe", "12/20/2022", "Dog", "Borzoi" },
-                    { 3, 5, "Haliax", "01/03/2023", "Dog", "Poodle" },
-                    { 4, 5, "Bast", "01/10/2023", "Cat", "Domestic Shorthair" },
-                    { 5, 10, "OreSeur", "12/15/2023", "Dog", "Wolfhound" },
-                    { 6, 4, "Elend", "01/10/2023", "Dog", "Jack Russel Terrier" },
-                    { 7, 3, "Kjelvin", "01/18/2023", "Cat", "Abyssinian" }
+                    { 1, 7, "Denna", null, "Cat", "Himalayan" },
+                    { 2, 2, "Kvothe", null, "Dog", "Borzoi" },
+                    { 3, 5, "Haliax", null, "Dog", "Poodle" },
+                    { 4, 5, "Bast", null, "Cat", "Domestic Shorthair" },
+                    { 5, 10, "OreSeur", null, "Dog", "Wolfhound" },
+                    { 6, 4, "Elend", null, "Dog", "Jack Russel Terrier" },
+                    { 7, 3, "Kjelvin", null, "Cat", "Abyssinian" }
                 });
         }
 
