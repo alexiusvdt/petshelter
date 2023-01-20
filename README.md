@@ -3,11 +3,15 @@
 
 An Api for managing pet residents. 
 
-[Documentation](#api-documentation)
-[Project Details](#project-details)
-[Setup/Installation Guide](#setup/installation-guide)
-[Bugs](#known-bugs)
-[License](#license)
+🐱 [Documentation](#api-documentation)
+
+🐶 [Project Details](#project-details)
+
+🐱 [Setup/Installation Guide](#setup/installation-guide)
+
+🐶 [Bugs](#known-bugs)
+
+🐱 [License](#license)
 
 
 ## Technologies Used
