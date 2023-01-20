@@ -125,6 +125,11 @@ You may also query certain attributes by using the following syntax in your GET 
 
 
 ### for later
+mvc/api
+dotnet add package RestSharp --version 108.0.3	
+dotnet add package Newtonsoft.Json --version 13.0.2
+
+
 * Run the API 
   
 * Clone this repo 

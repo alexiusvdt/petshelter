@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using TravelApi.Models;
+using Newtonsoft.Json;
 using PetShelterApi.Models;
 
 namespace PetShelterApi.Controllers
@@ -15,25 +17,22 @@ namespace PetShelterApi.Controllers
       _db = db;
     }
 
-    [HttpGet ]
-    public async Task<ActionResult<IEnumerable<Animal>>> Get(string species, string name, int minimumAge)
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Location>>> Get([FromQuery] Parameters parameters)
     {
-      IQueryable<Animal> query = _db.Animals.AsQueryable();
-
-      if (species != null)
-      {
-        query = query.Where(entry => entry.Species == species);
-      }
-      if (name != null)
-      {
-        query = query.Where(entry => entry.Name == name);
-      }
-      if (minimumAge > 0)
-      {
-        query = query.Where(entry => entry.Age >= minimumAge);
-      }
-
-      return await query.ToListAsync();
+      IQueryable<Location> query = _db.Locations.AsQueryable();
+      var locations = PagedList<Location>.ToPagedList(query.OrderBy(e=>e.Name), parameters.PageNumber, parameters.PageSize);
+      var metadata = new
+    {
+        locations.TotalCount,
+        locations.PageSize,
+        locations.CurrentPage,
+        locations.TotalPages,
+        locations.HasNext,
+        locations.HasPrevious
+    };
+    Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+      return new ActionResult<IEnumerable<Location>>(locations);
     }
 
 
