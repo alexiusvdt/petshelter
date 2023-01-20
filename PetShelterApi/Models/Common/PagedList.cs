@@ -1,4 +1,4 @@
-namespace TravelApi.Models
+namespace PetShelterApi.Models
 {
 public class PagedList<T> : List<T>
 {

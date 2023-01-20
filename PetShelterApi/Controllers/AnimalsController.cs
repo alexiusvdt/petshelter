@@ -18,21 +18,21 @@ namespace PetShelterApi.Controllers
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Location>>> Get([FromQuery] Parameters parameters)
+    public async Task<ActionResult<IEnumerable<Animal>>> Get([FromQuery] Parameters parameters)
     {
-      IQueryable<Location> query = _db.Locations.AsQueryable();
-      var locations = PagedList<Location>.ToPagedList(query.OrderBy(e=>e.Name), parameters.PageNumber, parameters.PageSize);
+      IQueryable<Animal> query = _db.Animals.AsQueryable();
+      var animals = PagedList<Animal>.ToPagedList(query.OrderBy(e=>e.Name), parameters.PageNumber, parameters.PageSize);
       var metadata = new
     {
-        locations.TotalCount,
-        locations.PageSize,
-        locations.CurrentPage,
-        locations.TotalPages,
-        locations.HasNext,
-        locations.HasPrevious
+        animals.TotalCount,
+        animals.PageSize,
+        animals.CurrentPage,
+        animals.TotalPages,
+        animals.HasNext,
+        animals.HasPrevious
     };
     Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
-      return new ActionResult<IEnumerable<Location>>(locations);
+      return new ActionResult<IEnumerable<Animal>>(animals);
     }
 
 

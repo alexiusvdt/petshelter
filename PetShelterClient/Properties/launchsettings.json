@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "CretaceousClient": {
+    "PetShelterClient": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
