@@ -1,7 +1,7 @@
 ### Pet Shelter
 ## By Alex Johnson
 
-An Api for managing pet residents. 
+An Api for managing pet residents with a dedicated client for interacting with the API/database
 
 🐱 [Documentation](#api-documentation)
 
@@ -30,7 +30,7 @@ An Api for managing pet residents.
 * Implement one(or more) of the following: authentication, versioning, pagination, or CORS
 * full API documentation required.
 
-## Setup/Installation Guide
+## #Setup/Installation Guide
  
 # Set up the API
 * Clone the repository 
