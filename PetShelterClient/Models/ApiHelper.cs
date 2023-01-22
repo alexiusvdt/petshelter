@@ -8,7 +8,7 @@ namespace PetShelterClient.Models
     public static async Task<string> GetAll()
     {
       RestClient client = new RestClient("http://localhost:5001/");
-      RestRequest request = new RestRequest($"api/animals?PageNumber=1&PageSize=5", Method.Get);
+      RestRequest request = new RestRequest($"api/animals", Method.Get);
       RestResponse response = await client.GetAsync(request);
       return response.Content;
     }

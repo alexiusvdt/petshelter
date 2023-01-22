@@ -17,22 +17,25 @@ namespace PetShelterApi.Controllers
       _db = db;
     }
 
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<Animal>>> Get([FromQuery] Parameters parameters)
+    [HttpGet ]
+    public async Task<ActionResult<IEnumerable<Animal>>> Get(string species, string name, int minimumAge)
     {
       IQueryable<Animal> query = _db.Animals.AsQueryable();
-      var animals = PagedList<Animal>.ToPagedList(query.OrderBy(e=>e.Name), parameters.PageNumber, parameters.PageSize);
-      var metadata = new
-    {
-        animals.TotalCount,
-        animals.PageSize,
-        animals.CurrentPage,
-        animals.TotalPages,
-        animals.HasNext,
-        animals.HasPrevious
-    };
-    Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
-      return new ActionResult<IEnumerable<Animal>>(animals);
+
+      if (species != null)
+      {
+        query = query.Where(entry => entry.Species == species);
+      }
+      if (name != null)
+      {
+        query = query.Where(entry => entry.Name == name);
+      }
+      if (minimumAge > 0)
+      {
+        query = query.Where(entry => entry.Age >= minimumAge);
+      }
+
+      return await query.ToListAsync();
     }
 
 

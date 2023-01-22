@@ -154,14 +154,9 @@ You may also query certain attributes by using the following syntax in your GET 
 
 
 
-
-* Run the API 
-  
-* Clone this repo 
-
-
 ## Known Bugs
 
+* pagination and querying through the front end not functional
 
 ## Thanks
 
