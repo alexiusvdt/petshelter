@@ -51,5 +51,5 @@ namespace PetShelterClient.Models
     {
       ApiHelper.Delete(id);
     }
-}
+  }
 }
