@@ -1,7 +1,7 @@
-### Pet Shelter
+### Pet Shelter API
 ## By Alex Johnson
 
-An Api for managing pet residents with a dedicated client for interacting with the API/database
+An Api for managing pet residents 
 
 🐱 [Documentation](#api-documentation)
 
@@ -60,32 +60,8 @@ An Api for managing pet residents with a dedicated client for interacting with t
 }
 ```
 
-# Client Setup
-
-* Navigate to the `PetShelterClient` directory, opening a command line interface
-* Enter the following commands:
- ```
- dotnet add package Microsoft.EntityFrameworkCore.Design -v 6.0.0
- dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore -v 6.0.0
- dotnet add package RestSharp --version 108.0.3	
- dotnet add package Newtonsoft.Json --version 13.0.2
- ```
- * In the `PetShelterClient` directory create a file called appsettings.json and enter the following code:
- ```
-{
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
-    }
-  },
-  "AllowedHosts": "*"
-}
- ```
-
 # Running the program
 * Start the API by opening a command line in the `PetShelterApi` directory and enter `dotnet run`
-* Start the client by opening a command line in the `PetShelterClient` directory and enter `dotnet run`
 
 
 ### API Documentation
@@ -98,30 +74,11 @@ POST http://localhost:5000/api/animals/
 PUT http://localhost:5000/api/animals/{id}
 DELETE http://localhost:5000/api/animals/{id}
 ```
-## Attribute Queries
-You may also query certain attributes by using the following syntax in your GET requests:
-| Parameter | DataType | Returns |
-| ------ | ------ | ----------------------------------------------------- |
-| Name | String | All names matching the input string |
-| Species | String | All species matching the input string |
-| SubSpecies | String | All SubSpecies of the parent species (eg, german shepherd) |
-| Age | Integer | All animals at least [input value] years old |
-
     
-## Examples
-  * The following query will return all animals named "Kvothe":
+## Query Examples
+  * The following query will return all animals with pagination enabled (first page, 5 elements per page):
       ```
-      GET http://localhost:5001/api/animals?name=Kvothe
-      ```
-      Partial name matching is allowed (eg, querying 'sa' would return Sam, Lisa, etc )
-
-  * The following query will return all animals at least 3 years old:
-      ```
-      GET http://localhost:5001/api/Location?minimumAge=3
-      ```
-  * You can query multiple fields by concatening requests with &, like this:
-      ```
-      GET http://localhost:5001/api/Location?species=Cat&minimumAge=3
+      GET https://localhost:5001/api/Animals?PageNumber=1&PageSize=5
       ```
   * You may query specific entry IDs by appending it to the end:
       ```
@@ -153,15 +110,8 @@ You may also query certain attributes by using the following syntax in your GET 
       ```
 
 
-
-
-* Run the API 
-  
-* Clone this repo 
-
-
 ## Known Bugs
-
+* pagination not working correctly with the MVC front end application (removed for project completion)
 
 ## Thanks
 

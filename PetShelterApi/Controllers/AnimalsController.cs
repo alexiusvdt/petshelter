@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TravelApi.Models;
+using PetShelterApi.Models;
 using Newtonsoft.Json;
 using PetShelterApi.Models;
 
